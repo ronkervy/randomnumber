@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div className="App">
-        {selected.num ? <h1 className={selected.num === -1 ? "existing" : ""}>{selected.num}</h1> : <GeneratingNum />}
+        {selected.num ? <h1>{selected.num}</h1> : <GeneratingNum />}
         <small>
           <em>Eliminated numbers : {selected.xnum.join(',')}</em>< br/>
         </small>
