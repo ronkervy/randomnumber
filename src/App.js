@@ -14,16 +14,38 @@ function App() {
       max : 0
   });
 
+  useEffect(()=>{
+      let arr = [];
+      for( let i = numrange.min; i <= numrange.max; i++ ){
+          arr.push(i);
+      } 
+
+      selected.rnum = arr;
+
+  },[numrange,selected]);
+
   function randomize(){
-      setSelected({...selected,num : 0});
+
       let randNum = Math.floor(Math.random() * ( numrange.max + 1 - numrange.min ) + numrange.min);      
-      
+
+      setSelected(prevState=>{
+          return {
+              ...prevState,
+              num : 0              
+          }
+      });
+
+      let newArr = selected.rnum.filter(x=> selected.xnum.indexOf(x) === -1 );
+
+      console.log(newArr);
+
       setTimeout(()=>{
         if( selected.xnum.indexOf( randNum ) !== -1 ) return setSelected({...selected,num:"Number already selected."});
         setSelected(prevState=>{
           return {
               num : randNum,
-              xnum : [...prevState.xnum,randNum]
+              xnum : [...prevState.xnum,randNum],
+              rnum : prevState.rnum
           }
         }); 
       },3000);
