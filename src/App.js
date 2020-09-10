@@ -4,18 +4,15 @@ import './styles/style.css';
 function App() {
 
   const [selected,setSelected] = useState({
-    num : 0,
-    xnum : []
+    num : 1,
+    xnum : [],
+    rnum : []
   });
-
+  
   const [numrange,setNumRange] = useState({
       min : 0,
       max : 0
   });
-
-  useEffect(()=>{
-      console.log(numrange.min,numrange.max);
-  },[numrange]);
 
   function randomize(){
       setSelected({...selected,num : 0});
@@ -34,7 +31,7 @@ function App() {
   }
 
   const GeneratingNum = ()=>{
-      return  <h1>Generating Number</h1>;
+      return  <div className="loader-wrap"><div className="loader"></div><small><em>Loading...</em></small></div>;
   }
 
   return (
