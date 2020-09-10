@@ -36,6 +36,11 @@ body,html{
     }
 }
 
+.existing{
+    color : maroon;
+    font-weight: 700;
+}
+
 @-webkit-keyframes animateLoader{
     0%{
         transform: rotate(0deg);

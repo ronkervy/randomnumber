@@ -36,12 +36,12 @@ function App() {
 
   return (
     <div className="App">
-        {selected.num ? <h1>{selected.num}</h1> : <GeneratingNum />}
+        {selected.num ? <h1 className={selected.num === -1 ? "existing" : ""}>{selected.num}</h1> : <GeneratingNum />}
         <small>
           <em>Eliminated numbers : {selected.xnum.join(',')}</em>< br/>
         </small>
-        <input type="number" placeholder="from" name="min" onChange={e=>{setNumRange({...numrange,min : parseInt(e.currentTarget.value)})}}/>
-        <input type="number" placeholder="to" name="max" onChange={e=>{setNumRange({...numrange,max:parseInt(e.currentTarget.value)})}}/>
+        <input type="text" placeholder="from" name="min" onChange={e=>{setNumRange({...numrange,min : parseInt(e.currentTarget.value)})}}/>
+        <input type="text" placeholder="to" name="max" onChange={e=>{setNumRange({...numrange,max:parseInt(e.currentTarget.value)})}}/>
         <button onClick={randomize}>Eliminate</button>
     </div>
   );

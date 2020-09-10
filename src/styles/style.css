@@ -54,6 +54,11 @@ body, html {
           animation: animateLoader 1000ms linear forwards infinite;
 }
 
+.existing {
+  color: maroon;
+  font-weight: 700;
+}
+
 @-webkit-keyframes animateLoader {
   0% {
     -webkit-transform: rotate(0deg);
