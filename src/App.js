@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import Loader from './component/Loader';
 import './styles/style.css';
 
@@ -46,30 +46,36 @@ function App() {
 
   return (
     <div className="App">
-        
-        {randomizing ? <Loader /> : <h1>{selected}</h1>}
-        <small>
-            <em>Eliminated numbers : {numrange.xnum.join(',')}</em>< br/>
-        </small>
-        <input type="text" placeholder="Start" name="start" onChange={(e)=>{        
-            let startNum = parseInt(e.target.value);    
-            setNumrange(prevState=>{
-                return {
-                    ...prevState,
-                    start : parseInt(startNum),
-                }
-            });
-        }} />
-        <input type="text" placeholder="End" name="end" onChange={(e)=>{
-            let endNum = parseInt(e.target.value);
-            setNumrange(prevState=>{
-                return {
-                    ...prevState,
-                    end : parseInt(endNum)
-                }
-            });
-        }} />
-        <button onClick={handleNumber}>Eliminate</button>
+        <div className="left">
+            <h3>Eliminated Numbers</h3>
+            <ul>
+                {numrange.xnum.map((val,key)=>{
+                    return <li><em>{key + 1})</em> <b>{val}</b></li>
+                })}
+            </ul>
+        </div>
+        <div className="right">
+            {randomizing ? <Loader /> : <h1>{selected}</h1>}
+            <input type="text" placeholder="Start" name="start" onChange={(e)=>{        
+                let startNum = parseInt(e.target.value);    
+                setNumrange(prevState=>{
+                    return {
+                        ...prevState,
+                        start : parseInt(startNum),
+                    }
+                });
+            }} />
+            <input type="text" placeholder="End" name="end" onChange={(e)=>{
+                let endNum = parseInt(e.target.value);
+                setNumrange(prevState=>{
+                    return {
+                        ...prevState,
+                        end : parseInt(endNum)
+                    }
+                });
+            }} />
+            <button onClick={handleNumber}>Eliminate</button>
+        </div>
     </div>
   );
 }
