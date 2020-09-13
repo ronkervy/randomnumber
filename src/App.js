@@ -5,6 +5,7 @@ import './styles/style.css';
 function App() {
 
   const [selected,setSelected] = useState(1);
+  const [randomizing,setRandomizing] = useState(false);
   const [numrange,setNumrange] = useState({
     start : 1,
     end : 1,
@@ -25,13 +26,18 @@ function App() {
       let selectedNum = newArr.length > 1 ? Math.floor(Math.random() * (Math.max(...newArr) - Math.min(...newArr)) + Math.min(...newArr)) : newArr.pop();
 
       if( numrange.xnum.indexOf(selectedNum) === -1 ){          
-          setNumrange(prevState=>{
-              return {
-                  start : prevState.start,
-                  end : prevState.end,
-                  xnum : [...prevState.xnum,selectedNum]                
-              }
-          });    
+            setRandomizing(true);
+            setTimeout(()=>{                
+                setNumrange(prevState=>{
+                    return {
+                        start : prevState.start,
+                        end : prevState.end,
+                        xnum : [...prevState.xnum,selectedNum]                
+                    }
+                });    
+                setSelected(selectedNum);                
+                setRandomizing(false);
+            },3000);            
       }
 
       console.log("Selected :",selectedNum,"Remaining : ",newArr);
@@ -41,7 +47,7 @@ function App() {
   return (
     <div className="App">
         
-        <h1>{selected}</h1>
+        <h1>{randomizing ? <Loader /> : selected}</h1>
         <small>
             <em>Eliminated numbers : {numrange.xnum.join(',')}</em>< br/>
         </small>
