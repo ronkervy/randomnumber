@@ -27,6 +27,10 @@ body, html {
           justify-content: center;
 }
 
+#root .App h1 {
+  font-size: 5em !important;
+}
+
 #root .App input {
   margin: 10px 0px;
 }
@@ -57,12 +61,13 @@ body, html {
   border-bottom: 2px solid #ffffff;
   border-left: 2px dashed #ffffff;
   border-radius: 50%;
+  animation: animateLoader 1000ms linear forwards infinite;
   -webkit-animation: animateLoader 1000ms linear forwards infinite;
-          animation: animateLoader 1000ms linear forwards infinite;
 }
 
-#root .App .loader-wrap small em {
+#root .App .loader-wrap small, #root .App .loader-wrap small em {
   font-size: 10px;
+  margin: 35px 0px;
 }
 
 .existing {

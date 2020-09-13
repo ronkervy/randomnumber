@@ -18,8 +18,8 @@ function App() {
       for( let i = numrange.start; i <= numrange.end; i++ ){
           arr.push(i);
       }
-      
-      let newArr = arr.filter(x=>numrange.xnum.indexOf(x) === -1);
+          
+      let newArr = arr.filter(x=>numrange.xnum.indexOf(x) === -1);            
 
       if( newArr.length <= 0 ) return;
 
@@ -38,16 +38,16 @@ function App() {
                 setSelected(selectedNum);                
                 setRandomizing(false);
             },3000);            
+      }else{
+        return handleNumber();      
       }
-
-      console.log("Selected :",selectedNum,"Remaining : ",newArr);
 
   }
 
   return (
     <div className="App">
         
-        <h1>{randomizing ? <Loader /> : selected}</h1>
+        {randomizing ? <Loader /> : <h1>{selected}</h1>}
         <small>
             <em>Eliminated numbers : {numrange.xnum.join(',')}</em>< br/>
         </small>
