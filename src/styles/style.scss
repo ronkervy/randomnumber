@@ -7,6 +7,8 @@ body,html{
 #root{
     height: 100%;
     .App{
+        background: #444444;
+        color: #ffffff;
         display: flex;
         flex-direction: column;
         min-height: 100%;
@@ -18,6 +20,9 @@ body,html{
 
         .loader-wrap{
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             top: 0;
             left: 0;        
             flex-direction: column;
@@ -27,10 +32,13 @@ body,html{
                 margin:10px 0px;
                 width: 50px;
                 height: 50px;
-                border-bottom: 2px solid #333333;
-                border-left: 2px dashed #333333;
+                border-bottom: 2px solid #ffffff;
+                border-left: 2px dashed #ffffff;
                 border-radius: 50%;
                 animation: animateLoader 1000ms linear forwards infinite;
+            }
+            small em{
+                font-size: 10px;                
             }
         }
     }

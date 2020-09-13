@@ -9,6 +9,8 @@ body, html {
 }
 
 #root .App {
+  background: #444444;
+  color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -33,12 +35,19 @@ body, html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  top: 0;
-  left: 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  left: 0;
+  flex-direction: column;
   margin: 10px 0px;
 }
 
@@ -47,11 +56,15 @@ body, html {
   margin: 10px 0px;
   width: 50px;
   height: 50px;
-  border-bottom: 2px solid #333333;
-  border-left: 2px dashed #333333;
+  border-bottom: 2px solid #ffffff;
+  border-left: 2px dashed #ffffff;
   border-radius: 50%;
   -webkit-animation: animateLoader 1000ms linear forwards infinite;
           animation: animateLoader 1000ms linear forwards infinite;
+}
+
+#root .App .loader-wrap small em {
+  font-size: 10px;
 }
 
 .existing {
